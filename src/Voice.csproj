@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <AssemblyName>Vysn.Voice</AssemblyName>
+        <RootNamespace>Vysn.Voice</RootNamespace>
+        <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;netcoreapp5.0</TargetFrameworks>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>Vysn.Voice</Title>
+        <Authors>Yucked</Authors>
+        <Copyright>2020 Yucked. All rights reserved.</Copyright>
+        <PackageTags>Yucked, Discord, Wrapper, Discord-Wrapper, Discord.NET, DSharpPlus, Discord Library</PackageTags>
+        <PackageProjectUrl>https://github.com/Vysn/Voice</PackageProjectUrl>
+        <PackageIconUrl>https://imgur.com/klLpeIE.png</PackageIconUrl>
+        <Description>🎶 - Wrapper around Discord's voice gateway connection. Aiming to be plug and play.</Description>
+    </PropertyGroup>
+</Project>
