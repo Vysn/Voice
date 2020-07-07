@@ -7,6 +7,10 @@ on:
   pull_request:
     branches: [ beta, v1 ]
 
+env:
+  GITHUB: ${{ toJson(github) }}
+  BUILD_VERSION: 0.0.${{ github.run_number }}
+  
 jobs:
    build:
     runs-on: ubuntu-latest
@@ -20,7 +24,7 @@ jobs:
         dotnet-version: 5.0.100-preview.3
     
     - name: Build Project
-      run: dotnet build /p:Version=0.0.{{ github.run_number }} --configuration Release -o Output
+      run: dotnet build /p:Version=$BUILD_VERSION --configuration Release -o Output
 
     - name: Myget Upload
       if: success()
@@ -30,8 +34,6 @@ jobs:
     - name: Discord WebHook
       if: always()
       shell: pwsh
-      env: 
-        GITHUB: ${{ toJson(github) }} 
       run: |
         wget https://raw.githubusercontent.com/Yucked/Scripy/master/Powershell/ActionSend.ps1
         pwsh .\ActionSend.ps1 ${{ secrets.WEBHOOK }} ${{ job.status }}
