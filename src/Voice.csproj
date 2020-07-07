@@ -6,6 +6,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<RestoreAdditionalProjectSources>https://www.myget.org/F/yucked/api/v3/index.json</RestoreAdditionalProjectSources>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -17,4 +18,9 @@
         <PackageIconUrl>https://imgur.com/klLpeIE.png</PackageIconUrl>
         <Description>🎶 - Wrapper around Discord's voice gateway connection. Aiming to be plug and play.</Description>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Condition="'$(Configuration)'=='Release'" Include="Vysn.Commons" Version="0.0.*" />
+        <ProjectReference Condition="'$(Configuration)'=='Debug'" Include="..\..\Commons\src\Commons.csproj" />
+    </ItemGroup>
 </Project>
