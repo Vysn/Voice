@@ -11,7 +11,7 @@ namespace Vysn.Voice.Gateway {
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseVoiceGateway : IAsyncDisposable {
+    public abstract class AbstractVoiceGateway : IAsyncDisposable {
         private protected ILogger Logger { get; }
         private protected WebSocketClient SocketClient { get; }
         private protected VoiceServerInfo ServerInfo { get; }
@@ -27,7 +27,7 @@ namespace Vysn.Voice.Gateway {
         public bool IsOpen
             => Volatile.Read(ref _isOpen);
 
-        private bool _isOpen;
+        private protected bool _isOpen;
 
         /// <summary>
         /// 
@@ -35,7 +35,7 @@ namespace Vysn.Voice.Gateway {
         /// <param name="logger"></param>
         /// <param name="voiceServerInfo"></param>
         /// <param name="version"></param>
-        protected BaseVoiceGateway(ILogger logger, VoiceServerInfo voiceServerInfo, int version) {
+        protected AbstractVoiceGateway(ILogger logger, VoiceServerInfo voiceServerInfo, int version) {
             Logger = logger;
             ServerInfo = voiceServerInfo;
             Version = version;
@@ -65,12 +65,25 @@ namespace Vysn.Voice.Gateway {
         /// 
         /// </summary>
         /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public async Task StopAsync() {
             if (!Volatile.Read(ref _isOpen)) {
                 throw new InvalidOperationException("No open gateway connections.");
             }
 
             await SocketClient.DisconnectAsync();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public abstract Task UpdateSpeakingAsync(SpeakingFlags speakingFlags);
+
+        /// <inheritdoc />
+        public virtual ValueTask DisposeAsync() {
+            Volatile.Write(ref _isOpen, false);
+            return SocketClient.DisposeAsync();
         }
 
         private async Task OnOpenAsync(OpenEventArgs openEventArgs) {
@@ -99,11 +112,5 @@ namespace Vysn.Voice.Gateway {
         }
 
         private protected abstract Task OnMessageAsync(MessageEventArgs messageEventArgs);
-
-        /// <inheritdoc />
-        public ValueTask DisposeAsync() {
-            Volatile.Write(ref _isOpen, false);
-            return SocketClient.DisposeAsync();
-        }
     }
 }
