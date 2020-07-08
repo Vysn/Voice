@@ -2,7 +2,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public enum Opcode {
+    public enum OpCode {
         /// <summary>
         /// 
         /// </summary>
