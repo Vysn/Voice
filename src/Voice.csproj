@@ -20,7 +20,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="..\..\icon.png" Pack="true" PackagePath="" />
+		<None Include="icon.png" Pack="true" PackagePath="" />
 		<PackageReference Condition="'$(Configuration)'=='Release'" Include="Vysn.Commons" Version="0.0.*" />
 		<ProjectReference Condition="'$(Configuration)'=='Debug'" Include="..\..\Commons\src\Commons.csproj" />
 	</ItemGroup>
