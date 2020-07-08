@@ -1,26 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <AssemblyName>Vysn.Voice</AssemblyName>
-        <RootNamespace>Vysn.Voice</RootNamespace>
-        <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;netcoreapp5.0</TargetFrameworks>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<RestoreAdditionalProjectSources>https://www.myget.org/F/yucked/api/v3/index.json</RestoreAdditionalProjectSources>
-    </PropertyGroup>
+	<PropertyGroup>
+		<AssemblyName>Vysn.Voice</AssemblyName>
+		<RootNamespace>Vysn.Voice</RootNamespace>
+		<TargetFrameworks>netcoreapp3.0;netcoreapp3.1;netcoreapp5.0</TargetFrameworks>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<RestoreAdditionalProjectSources>https://www.myget.org/F/yucked/api/v3/index.json</RestoreAdditionalProjectSources>
+	</PropertyGroup>
 
-    <PropertyGroup>
-        <Title>Vysn.Voice</Title>
-        <Authors>Yucked</Authors>
-        <Copyright>2020 Yucked. All rights reserved.</Copyright>
-        <PackageTags>Yucked, Discord, Wrapper, Discord-Wrapper, Discord.NET, DSharpPlus, Discord Library</PackageTags>
-        <PackageProjectUrl>https://github.com/Vysn/Voice</PackageProjectUrl>
-        <PackageIconUrl>https://imgur.com/klLpeIE.png</PackageIconUrl>
-        <Description>🎶 - Wrapper around Discord's voice gateway connection. Aiming to be plug and play.</Description>
-    </PropertyGroup>
+	<PropertyGroup>
+		<Title>Vysn.Voice</Title>
+		<Authors>Yucked</Authors>
+		<Copyright>2020 Yucked. All rights reserved.</Copyright>
+		<PackageTags>Yucked, Discord, Wrapper, Discord-Wrapper, Discord.NET, DSharpPlus, Discord Library</PackageTags>
+		<PackageProjectUrl>https://github.com/Vysn/Voice</PackageProjectUrl>
+		<Description>🎶 - Wrapper around Discord's voice gateway connection. Aiming to be plug and play.</Description>
+		<PackageIconUrl>icon.png</PackageIconUrl>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Condition="'$(Configuration)'=='Release'" Include="Vysn.Commons" Version="0.0.*" />
-        <ProjectReference Condition="'$(Configuration)'=='Debug'" Include="..\..\Commons\src\Commons.csproj" />
-    </ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\icon.png" Pack="true" PackagePath="" />
+		<PackageReference Condition="'$(Configuration)'=='Release'" Include="Vysn.Commons" Version="0.0.*" />
+		<ProjectReference Condition="'$(Configuration)'=='Debug'" Include="..\..\Commons\src\Commons.csproj" />
+	</ItemGroup>
 </Project>
