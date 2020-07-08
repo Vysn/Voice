@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<AssemblyName>Vysn.Voice</AssemblyName>
 		<RootNamespace>Vysn.Voice</RootNamespace>
-		<TargetFrameworks>netcoreapp3.0;netcoreapp3.1;netcoreapp5.0</TargetFrameworks>
+		<TargetFramework>netcoreapp5.0</TargetFramework>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
