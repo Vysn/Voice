@@ -1,4 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
 	<PropertyGroup>
 		<AssemblyName>Vysn.Voice</AssemblyName>
 		<RootNamespace>Vysn.Voice</RootNamespace>
@@ -6,7 +7,6 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<RestoreAdditionalProjectSources>https://www.myget.org/F/yucked/api/v3/index.json</RestoreAdditionalProjectSources>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -20,8 +20,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="icon.png" Pack="true" PackagePath="" />
-		<PackageReference Condition="'$(Configuration)'=='Release'" Include="Vysn.Commons" Version="0.0.*" />
-		<ProjectReference Condition="'$(Configuration)'=='Debug'" Include="..\..\Commons\src\Commons.csproj" />
+		<None Include="icon.png" Pack="true" PackagePath=""/>
+		<PackageReference Condition="'$(Configuration)'=='Release'" Include="Vysn.Commons" Version="0.0.*"/>
+		<ProjectReference Condition="'$(Configuration)'=='Debug'" Include="..\..\Commons\src\Commons.csproj"/>
 	</ItemGroup>
+
+	<PropertyGroup>
+		<RestoreAdditionalProjectSources>https://www.myget.org/F/yucked/api/v3/index.json</RestoreAdditionalProjectSources>
+	</PropertyGroup>
+
 </Project>
