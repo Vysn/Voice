@@ -8,6 +8,11 @@ namespace Vysn.Voice.Encryption.Interfaces {
         /// <summary>
         /// 
         /// </summary>
+        bool IsSupported { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="opus"></param>
         /// <param name="target"></param>
         /// <param name="secretKey"></param>
