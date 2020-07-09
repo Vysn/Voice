@@ -32,6 +32,10 @@ namespace Vysn.Voice.Encryption {
                     continue;
                 }
 
+                if (!implementation.IsSupported) {
+                    continue;
+                }
+
                 return encryptionMode;
             }
 
